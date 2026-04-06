@@ -1,0 +1,143 @@
+/* ===== Reset básico ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Body ===== */
+body {
+    background-color: blue;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ===== Título principal ===== */
+h1 {
+    color: #08f828;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: clamp(1.8rem, 5vw, 3rem); /* tamanho fluido */
+    margin-bottom: 40px;
+}
+
+/* ===== Subtítulos ===== */
+h3 {
+    color: #f8a408;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 12px;
+}
+
+/* ===== Container dos cards ===== */
+#cards {
+    display: flex;
+    flex-wrap: wrap;          /* quebra linha em telas pequenas */
+    justify-content: center;
+    gap: 30px;
+}
+
+/* ===== Card individual ===== */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px;             /* largura base */
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* ===== Imagens dos cards ===== */
+.card img {
+    width: 100%;              /* ocupa a largura do card */
+    max-width: 150px;
+    height: auto;             /* mantém proporção */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ===== Link sem decoração extra ===== */
+.card a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ===== Imagem centralizada dentro do link ===== */
+.card a img {
+    margin: 0 auto;
+}
+
+/* ===== Logo Kellvera ===== */
+@keyframes pulso-sombra {
+    0%   {
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4))
+                drop-shadow(0 0 18px rgba(255, 140, 0, 0.5));
+    }
+    50%  {
+        filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.95))
+                drop-shadow(0 0 55px rgba(255, 140, 0, 1))
+                drop-shadow(0 0 90px rgba(0, 0, 255, 0.65));
+    }
+    100% {
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4))
+                drop-shadow(0 0 18px rgba(255, 140, 0, 0.5));
+    }
+}
+
+.logo-kellvera {
+    display: block;
+    margin: 50px auto 30px;
+    width: clamp(260px, 55vw, 600px);
+    height: auto;
+    animation: pulso-sombra 2.4s ease-in-out infinite;
+    transition: transform 0.35s ease;
+}
+
+.logo-kellvera:hover {
+    transform: scale(1.08);
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 36px rgba(255, 255, 255, 1))
+            drop-shadow(0 0 70px rgba(255, 140, 0, 1))
+            drop-shadow(0 0 110px rgba(0, 0, 255, 0.85));
+}
+
+/* ===== Media Queries ===== */
+
+/* Tablets (até 768px) */
+@media (max-width: 768px) {
+    #cards {
+        gap: 20px;
+    }
+
+    .card {
+        width: 160px;
+        padding: 16px;
+    }
+}
+
+/* Celulares (até 480px) — empilha verticalmente */
+@media (max-width: 480px) {
+    #cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .logo-kellvera {
+        width: 80%;
+        max-width: 320px;
+    }
+}

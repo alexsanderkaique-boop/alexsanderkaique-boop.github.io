@@ -1,0 +1,178 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(28, 29, 27);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== CABEÇALHO ===== */
+#cont {
+    text-align: center;
+    color: blue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    padding: 20px 16px 10px;
+}
+
+.logo {
+    width: clamp(60px, 10vw, 100px);
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+#cont h1 {
+    background-color: chocolate;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    padding: 8px 12px;
+    border-radius: 4px;
+    word-break: break-word;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+#nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 20px 16px;
+}
+
+#port,
+#porq,
+#porl {
+    text-align: center;
+    font-size: clamp(16px, 2.5vw, 24px);
+    background-color: blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 10px;
+    padding: 6px 0;
+
+    /* Responsivo: cresce até 280px, mas encolhe em telas pequenas */
+    width: clamp(120px, 28vw, 280px);
+    flex: 1 1 160px;
+    max-width: 280px;
+
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#port:hover,
+#porq:hover,
+#porl:hover {
+    background-color: #0000cc;
+    transform: translateY(-2px);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 4px 8px;
+}
+
+/* ===== CARTÃO DE VISITA ===== */
+.cartao-wrapper {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.cartao {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ===== RODAPÉ ===== */
+main {
+    text-align: center;
+    font-size: clamp(14px, 2vw, 20px);
+    background-color: blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: clamp(200px, 40%, 400px);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 10px auto 24px;
+    color: white;
+}
+
+main h3,
+main p {
+    line-height: 1.5;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablet (máx 768px) */
+@media (max-width: 768px) {
+    #cont h1 {
+        font-size: clamp(0.9rem, 4vw, 1.3rem);
+    }
+
+    #nav-buttons {
+        gap: 10px;
+        padding: 16px 12px;
+    }
+
+    #port, #porq, #porl {
+        flex: 1 1 140px;
+        font-size: 18px;
+    }
+
+    .cartao {
+        max-width: 100%;
+    }
+
+    main {
+        width: 80%;
+    }
+}
+
+/* Mobile (máx 480px) */
+@media (max-width: 480px) {
+    #cont h1 {
+        font-size: 0.9rem;
+    }
+
+    #nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    #port, #porq, #porl {
+        width: 80%;
+        max-width: 100%;
+        font-size: 20px;
+        flex: none;
+    }
+
+    main {
+        width: 85%;
+        font-size: 15px;
+    }
+}
+
+/* Telas muito grandes (min 1440px) */
+@media (min-width: 1440px) {
+    .cartao {
+        max-width: 1100px;
+    }
+
+    #cont h1 {
+        font-size: 2rem;
+    }
+}
